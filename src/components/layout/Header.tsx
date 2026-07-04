@@ -30,7 +30,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={`text-sm font-medium transition-colors ${
-                  active ? "text-brand-600" : "text-gray-700 hover:text-brand-600"
+                  active ? "text-olive-600" : "text-gray-700 hover:text-olive-600"
                 }`}
               >
                 {item.label}
@@ -80,7 +80,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-2 py-3 text-base font-medium text-gray-800 hover:bg-brand-50 hover:text-brand-600"
+                className="rounded-md px-2 py-3 text-base font-medium text-gray-800 hover:bg-olive-50 hover:text-olive-600"
               >
                 {item.label}
               </Link>

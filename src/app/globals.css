@@ -15,6 +15,17 @@
   --color-brand-700: #162f4a;
   --color-brand-800: #112438;
   --color-brand-900: #0c1a28;
+
+  --color-olive-50: #f6f7ee;
+  --color-olive-100: #eaedd6;
+  --color-olive-200: #d3dab0;
+  --color-olive-300: #b7c383;
+  --color-olive-400: #9caa5c;
+  --color-olive-500: #82913f;
+  --color-olive-600: #66722f;
+  --color-olive-700: #505a26;
+  --color-olive-800: #414720;
+  --color-olive-900: #383c1e;
 }
 
 @theme inline {
@@ -32,6 +43,17 @@
   --color-brand-700: var(--color-brand-700);
   --color-brand-800: var(--color-brand-800);
   --color-brand-900: var(--color-brand-900);
+
+  --color-olive-50: var(--color-olive-50);
+  --color-olive-100: var(--color-olive-100);
+  --color-olive-200: var(--color-olive-200);
+  --color-olive-300: var(--color-olive-300);
+  --color-olive-400: var(--color-olive-400);
+  --color-olive-500: var(--color-olive-500);
+  --color-olive-600: var(--color-olive-600);
+  --color-olive-700: var(--color-olive-700);
+  --color-olive-800: var(--color-olive-800);
+  --color-olive-900: var(--color-olive-900);
 }
 
 body {

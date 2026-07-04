@@ -21,7 +21,7 @@ export const siteConfig = {
     addressShort: "서울 ○○구",
   },
 
-  serviceAreas: ["서울 전 지역", "경기 일부 지역"],
+  serviceAreas: ["전국"],
   yearsInBusiness: 10,
 
   domain: "https://example.com",
