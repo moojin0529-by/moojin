@@ -1,25 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import type { PortfolioCategory, PortfolioFrontmatter, PortfolioEntry } from "@/lib/portfolio-types";
 
-export type PortfolioCategory = "aircon" | "interior" | "both";
-
-export interface PortfolioFrontmatter {
-  title: string;
-  slug: string;
-  category: PortfolioCategory;
-  location: string;
-  spaceType: string;
-  duration: string;
-  date: string;
-  thumbnail: string;
-  images: string[];
-  featured: boolean;
-}
-
-export interface PortfolioEntry extends PortfolioFrontmatter {
-  content: string;
-}
+export type { PortfolioCategory, PortfolioFrontmatter, PortfolioEntry } from "@/lib/portfolio-types";
+export { categoryLabels } from "@/lib/portfolio-types";
 
 const PORTFOLIO_DIR = path.join(process.cwd(), "content", "portfolio");
 
@@ -57,9 +42,3 @@ export function getRelatedPortfolio(entry: PortfolioEntry, limit = 3): Portfolio
     .filter((p) => p.slug !== entry.slug && (p.category === entry.category || p.category === "both"))
     .slice(0, limit);
 }
-
-export const categoryLabels: Record<PortfolioCategory, string> = {
-  aircon: "시스템 에어컨",
-  interior: "인테리어",
-  both: "에어컨+인테리어",
-};
