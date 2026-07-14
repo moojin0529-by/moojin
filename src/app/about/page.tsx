@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { siteConfig } from "@/config/site";
-import { history, licenses } from "@/data/about";
+import { greeting, history, licenses, promises, siteGallery } from "@/data/about";
 
 export const metadata: Metadata = {
   title: "회사소개",
@@ -14,11 +16,58 @@ export default function AboutPage() {
       <section className="bg-brand-900 py-16 text-white sm:py-20">
         <Container>
           <h1 className="text-2xl font-extrabold sm:text-3xl">회사소개</h1>
-          <p className="mt-4 max-w-2xl leading-relaxed text-brand-100">
-            {siteConfig.companyName}은(는) 시스템 에어컨과 인테리어를 함께 시공하는
-            전문 업체입니다. 무료 현장 실측부터 시공, A/S까지 직영 시공팀이 책임지고
-            진행하며, 고객이 안심할 수 있는 품질을 약속드립니다.
-          </p>
+          <div className="mt-6 max-w-2xl space-y-4">
+            {greeting.map((paragraph, i) => (
+              <p key={i} className="leading-relaxed text-brand-100">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-14 sm:py-20">
+        <Container>
+          <h2 className="text-xl font-bold text-gray-900">{siteConfig.companyName}의 약속</h2>
+          <div className="mt-8 grid grid-cols-2 gap-6 lg:grid-cols-4">
+            {promises.map((p) => (
+              <div key={p.title}>
+                <p className="font-bold text-brand-600">{p.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-gray-500">{p.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-gray-50 py-14 sm:py-20">
+        <Container>
+          <div className="flex items-end justify-between">
+            <div>
+              <h2 className="text-xl font-bold text-gray-900">시공 현장</h2>
+              <p className="mt-2 text-sm text-gray-500">
+                {siteConfig.companyName}이(가) 직접 시공한 다양한 현장입니다.
+              </p>
+            </div>
+            <Link
+              href="/portfolio"
+              className="hidden text-sm font-semibold text-brand-600 sm:inline-block"
+            >
+              시공 사례 전체보기 →
+            </Link>
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {siteGallery.map((caption) => (
+              <PlaceholderImage key={caption} label={caption} />
+            ))}
+          </div>
+
+          <div className="mt-8 text-center sm:hidden">
+            <Link href="/portfolio" className="text-sm font-semibold text-brand-600">
+              시공 사례 전체보기 →
+            </Link>
+          </div>
         </Container>
       </section>
 

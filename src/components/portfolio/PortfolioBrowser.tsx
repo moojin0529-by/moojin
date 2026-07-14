@@ -3,12 +3,18 @@
 import { useState } from "react";
 import Link from "next/link";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
-import { categoryLabels, type PortfolioCategory, type PortfolioEntry } from "@/lib/portfolio-types";
+import {
+  categoryLabels,
+  categoryMatches,
+  type PortfolioCategory,
+  type PortfolioEntry,
+} from "@/lib/portfolio-types";
 
 const tabs: { value: PortfolioCategory | "all"; label: string }[] = [
   { value: "all", label: "전체" },
   { value: "aircon", label: "시스템 에어컨" },
   { value: "interior", label: "인테리어" },
+  { value: "cleaning", label: "시스템 세척" },
 ];
 
 export function PortfolioBrowser({ entries }: { entries: PortfolioEntry[] }) {
@@ -17,7 +23,7 @@ export function PortfolioBrowser({ entries }: { entries: PortfolioEntry[] }) {
   const cases =
     activeCategory === "all"
       ? entries
-      : entries.filter((p) => p.category === activeCategory || p.category === "both");
+      : entries.filter((p) => categoryMatches(p.category, activeCategory));
 
   return (
     <>

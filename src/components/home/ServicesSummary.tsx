@@ -12,7 +12,7 @@ export function ServicesSummary() {
         </h2>
         <p className="mt-2 text-gray-500">필요한 서비스를 선택해 자세히 알아보세요.</p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <Link
               key={service.slug}
